@@ -7,17 +7,20 @@ class Steps extends StatelessWidget {
   final List steps;
   final double size;
   final Map path;
+  final ScrollController scrollController;
   Steps({
     Key key,
     this.direction = Axis.vertical,
     @required this.steps,
     this.size = 21,
     @required this.path,
+    this.scrollController
   }) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
       scrollDirection: direction,
+      controller: scrollController,
       itemCount: steps.length,
       itemBuilder: (context, position) => Stack(
             children: <Widget>[
